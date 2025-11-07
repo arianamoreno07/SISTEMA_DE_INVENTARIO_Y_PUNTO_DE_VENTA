@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns">
+      <UniqueIdentifier>{4084c71b-ee1d-40fb-a696-4d82b773f88b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns\modelos">
+      <UniqueIdentifier>{2bd4fa27-1c91-4895-8087-b041f846e1f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProgrammingPatterns">
+      <UniqueIdentifier>{4cc6244e-20b5-42a6-b28a-4c76687082f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProgrammingPatterns\modelos">
+      <UniqueIdentifier>{c04066e8-1a81-426b-b9c9-023ba6b9b70e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProgrammingPatterns\factory">
+      <UniqueIdentifier>{0a86e7fc-ab52-4317-a8e5-b6546d0805d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns\factory">
+      <UniqueIdentifier>{4607b2c4-a027-40f3-aad0-9c3b43b0b19a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns\observer">
+      <UniqueIdentifier>{dbe6f412-de11-4742-a279-694298a5065b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProgrammingPatterns\observer">
+      <UniqueIdentifier>{5a4bfe92-bd4d-4bb0-82ff-0c5b91408acb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Prerequisites.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\modelos\Producto.h">
+      <Filter>Header Files\ProgrammingPatterns\modelos</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\factory\ProductoFactory.h">
+      <Filter>Header Files\ProgrammingPatterns\factory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\observer\Sujeto.h">
+      <Filter>Header Files\ProgrammingPatterns\observer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\observer\AlertaStockBajo.h">
+      <Filter>Header Files\ProgrammingPatterns\observer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\modelos\Inventario.h">
+      <Filter>Header Files\ProgrammingPatterns\modelos</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\observer\observador.h">
+      <Filter>Header Files\ProgrammingPatterns\observer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ProgrammingPatterns\modelos\Producto.cpp">
+      <Filter>Source Files\ProgrammingPatterns\modelos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ProgrammingPatterns\factory\ProductoFactory.cpp">
+      <Filter>Source Files\ProgrammingPatterns\factory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ProgrammingPatterns\observer\Sujeto.cpp">
+      <Filter>Source Files\ProgrammingPatterns\observer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ProgrammingPatterns\modelos\Inventario.cpp">
+      <Filter>Source Files\ProgrammingPatterns\modelos</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
