@@ -9,7 +9,7 @@
  * y clasificar el estado de un elemento.
  *
  * @author Ariana Moreno Jimenez
- * @date 2025-09-30
+ * @date 2025-11-07
  */
 #pragma once
 
