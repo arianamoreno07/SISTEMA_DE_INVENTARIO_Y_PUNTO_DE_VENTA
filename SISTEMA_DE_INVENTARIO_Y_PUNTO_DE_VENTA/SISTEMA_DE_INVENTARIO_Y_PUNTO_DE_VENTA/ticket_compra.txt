@@ -1,0 +1,21 @@
+*************** TIENDA XYZ ****************
+               RECIBO DE COMPRA
+-------------------------------------------
+
+Ticket No: 001283
+Fecha: 03/12/2025   Hora: 17:57:06
+
+Descripción                         Precio
+-------------------------------------------
+Paracetamol 500 mg Oral 20 tabletas Marca del Ahorro$25
+Cantidad: 4
+-------------------------------------------
+
+Subtotal:                           $86.21
+IVA (16%):                          $13.79
+TOTAL:                              $100.00
+
+Método de pago: Credito
+-------------------------------------------
+   Gracias por su compra. Vuelva pronto :)
+*******************************************

@@ -37,6 +37,24 @@
     <Filter Include="Source Files\ProgrammingPatterns\observer">
       <UniqueIdentifier>{5a4bfe92-bd4d-4bb0-82ff-0c5b91408acb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns\strategy">
+      <UniqueIdentifier>{b80c2d58-2675-4ec4-80ca-e5d0fb830366}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns\tickets">
+      <UniqueIdentifier>{fdfe6b11-4cfa-403a-948b-ac552eccc06c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns\gasolinera">
+      <UniqueIdentifier>{5311b80b-4e1b-486c-9a14-cc24a8d64859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ProgrammingPatterns\facade">
+      <UniqueIdentifier>{f4a8e0d5-95e7-4a66-844f-7b56913c18ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProgrammingPatterns\gasolinera">
+      <UniqueIdentifier>{357951ea-d8e8-45c5-bb68-117ddabcc08f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ProgrammingPatterns\facade">
+      <UniqueIdentifier>{afb7dcaf-d057-4d2c-b7f9-cb0440a94aec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Prerequisites.h">
@@ -60,6 +78,30 @@
     <ClInclude Include="include\ProgrammingPatterns\observer\observador.h">
       <Filter>Header Files\ProgrammingPatterns\observer</Filter>
     </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\strategy\MetodoPago.h">
+      <Filter>Header Files\ProgrammingPatterns\strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\strategy\PagoEfectivo.h">
+      <Filter>Header Files\ProgrammingPatterns\strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\strategy\PagoDebito.h">
+      <Filter>Header Files\ProgrammingPatterns\strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\strategy\PagoCredito.h">
+      <Filter>Header Files\ProgrammingPatterns\strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\tickets\GeneradorTickets.h">
+      <Filter>Header Files\ProgrammingPatterns\tickets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\gasolinera\Gasolinera.h">
+      <Filter>Header Files\ProgrammingPatterns\gasolinera</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\facade\SistemaFacade.h">
+      <Filter>Header Files\ProgrammingPatterns\facade</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ProgrammingPatterns\facade\SistemaGasolineraFacade.h">
+      <Filter>Header Files\ProgrammingPatterns\facade</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -71,11 +113,14 @@
     <ClCompile Include="source\ProgrammingPatterns\factory\ProductoFactory.cpp">
       <Filter>Source Files\ProgrammingPatterns\factory</Filter>
     </ClCompile>
-    <ClCompile Include="source\ProgrammingPatterns\observer\Sujeto.cpp">
-      <Filter>Source Files\ProgrammingPatterns\observer</Filter>
-    </ClCompile>
     <ClCompile Include="source\ProgrammingPatterns\modelos\Inventario.cpp">
       <Filter>Source Files\ProgrammingPatterns\modelos</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ProgrammingPatterns\gasolinera\Gasolinera.cpp">
+      <Filter>Source Files\ProgrammingPatterns\gasolinera</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ProgrammingPatterns\facade\SistemaGasolineraFacade.cpp">
+      <Filter>Source Files\ProgrammingPatterns\facade</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

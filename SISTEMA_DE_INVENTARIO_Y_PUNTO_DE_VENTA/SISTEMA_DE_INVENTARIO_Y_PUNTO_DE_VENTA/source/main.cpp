@@ -1,69 +1,53 @@
 ﻿/**
  * @file main.cpp
  * @brief Sistema de Inventario y Ventas.
- *
- * Este programa implementa un sistema básico de inventario con funcionalidades
- * para listar productos, vender, reponer stock y guardar los datos en formato JSON.
- *
- * Se utilizan los patrones de diseño:
- *  - Factory: para crear objetos de tipo Producto.
- *  - Observer: para notificar alertas de stock bajo.
- *
- * Los datos se guardan en el archivo "Productos.json".
- *
- * @date 2025-11-07
- * @version 1.0
- * @author Ari
  */
+
 #include "Prerequisites.h"
-#include "ProgrammingPatterns/modelos/Inventario.h"
-#include "ProgrammingPatterns/factory/ProductoFactory.h"
-#include "ProgrammingPatterns/observer/AlertaStockBajo.h"
+#include "programmingPatterns/modelos/Inventario.h"
+#include "programmingPatterns/factory/ProductoFactory.h"
+#include "programmingPatterns/observer/AlertaStockBajo.h"
+#include "programmingPatterns/strategy/PagoCredito.h"
+#include "programmingPatterns/strategy/PagoDebito.h"
+#include "programmingPatterns/strategy/PagoEfectivo.h"
+#include "programmingPatterns/gasolinera/Gasolinera.h"
+#include "programmingPatterns/facade/SistemaFacade.h"
+#include "programmingPatterns/facade/SistemaGasolineraFacade.h"
 #include <limits>
 
- /**
-  * @brief Limpia la entrada estándar para evitar errores de lectura.
-  *
-  * Esta función elimina cualquier carácter restante en el buffer de entrada
-  * (como saltos de línea o datos no válidos) después de leer desde `std::cin`.
-  */
 static void limpiarEntrada() {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-/**
- * @brief Función principal del sistema de inventario y ventas.
- *
- * Carga los productos desde un archivo JSON, permite listar, vender,
- * comprar y guardar productos mediante un menú interactivo en consola.
- *
- * @return int Devuelve 0 al finalizar correctamente.
- */
-int 
-main() {
+int main() {
+
+    // Inventario + Alerta
     Inventario inventario;
     AlertaStockBajo alerta;
-
-    // Se registra el observador en el inventario
     inventario.agregarObservador(&alerta);
 
-    // Carga inicial del inventario desde el archivo JSON
-    inventario.cargarDesdeJson("Productos.json");
+    // Gasolinera + Facade
+    Gasolinera gasolinera;
+    SistemaGasolineraFacade gasFacade;
+    gasolinera.cargarHistorialJson("HistorialGas.json");
 
-    // Muestra lista inicial de productos
+    // Cargar inventario
+    inventario.cargarDesdeJson("Productos.json");
     inventario.listarProductos();
 
     bool activo = true;
 
-    // Bucle principal del sistema
     while (activo) {
         std::cout << "\nSISTEMA DE INVENTARIO Y VENTAS\n";
         std::cout << "1. Lista Productos\n";
         std::cout << "2. Vender Producto\n";
         std::cout << "3. Comprar para reponer\n";
         std::cout << "4. Guardar inventario\n";
-        std::cout << "5. Salir\n";
+        std::cout << "5. Vender con ticket y factura\n";
+        std::cout << "6. Gasolinera (Registrar carga)\n";
+        std::cout << "7. Ver historial de gasolinera\n";
+        std::cout << "8. Salir\n";
         std::cout << "Selecciona una opcion: ";
 
         int opcion;
@@ -72,75 +56,119 @@ main() {
             limpiarEntrada();
             continue;
         }
-
-        limpiarEntrada(); // limpia el salto de línea pendiente
+        limpiarEntrada();
 
         switch (opcion) {
 
-       /**
-       * @brief Lista todos los productos disponibles en el inventario.
-       */
         case 1:
             inventario.listarProductos();
             break;
 
-        /**
-            * @brief Permite vender un producto existente.
-            *
-            * Solicita el código del producto y la cantidad a vender.
-            * Si el stock es bajo, el observador `AlertaStockBajo` mostrará una advertencia.
-            */
         case 2: {
             std::string codigo;
             int cantidad;
+
             std::cout << "Codigo del producto: ";
             std::getline(std::cin, codigo);
+
             std::cout << "Cantidad a vender: ";
             std::cin >> cantidad;
             limpiarEntrada();
+
             inventario.venderProducto(codigo, cantidad);
             break;
         }
 
-              /**
-                  * @brief Permite reponer el stock de un producto.
-                  *
-                  * Solicita el código y la cantidad a comprar para aumentar el inventario.
-                  */
-
         case 3: {
             std::string codigo;
             int cantidad;
+
             std::cout << "Codigo del producto: ";
             std::getline(std::cin, codigo);
+
             std::cout << "Cantidad a comprar: ";
             std::cin >> cantidad;
             limpiarEntrada();
+
             inventario.comprarProducto(codigo, cantidad);
             break;
         }
 
-              /**
-         * @brief Guarda los datos actuales del inventario en el archivo JSON.
-         */
-
         case 4:
             inventario.guardarAJson("Productos.json");
+            std::cout << "Inventario guardado.\n";
             break;
 
-            /**
-         * @brief Sale del sistema guardando los datos antes de cerrar.
-         */
-        case 5:
+        case 5: {
+            std::string codigo;
+            int cantidad;
+
+            std::cout << "Codigo del producto: ";
+            std::getline(std::cin, codigo);
+
+            std::cout << "Cantidad a vender: ";
+            std::cin >> cantidad;
+            limpiarEntrada();
+
+            std::cout << "Metodo de pago: 1-Efectivo 2-Debito 3-Credito: ";
+            int mp;
+            std::cin >> mp;
+            limpiarEntrada();
+
+            MetodoPago* metodo = nullptr;
+            if (mp == 1) metodo = new PagoEfectivo();
+            else if (mp == 2) metodo = new PagoDebito();
+            else metodo = new PagoCredito();
+
+            SistemaFacade facade;
+            facade.procesarVenta(inventario, codigo, cantidad, metodo);
+
+            delete metodo;
+            break;
+        }
+
+        case 6: {  // GASOLINERA
+            double litros;
+            std::string tipo;
+            double precio;
+
+            std::cout << "Litros a cargar: ";
+            std::cin >> litros;
+            limpiarEntrada();
+
+            std::cout << "Tipo de gasolina (Magna/Premium/Diesel): ";
+            std::getline(std::cin, tipo);
+
+            std::cout << "Precio por litro: ";
+            std::cin >> precio;
+
+            std::cout << "Metodo de pago: 1-Efectivo 2-Debito 3-Credito: ";
+            int mp;
+            std::cin >> mp;
+            limpiarEntrada();
+
+            MetodoPago* metodo = nullptr;
+            if (mp == 1) metodo = new PagoEfectivo();
+            else if (mp == 2) metodo = new PagoDebito();
+            else metodo = new PagoCredito();
+
+            gasFacade.procesarCarga(gasolinera, litros, tipo, precio, metodo);
+
+            delete metodo;
+            break;
+        }
+
+        case 7: // Mostrar historial
+            gasolinera.mostrarHistorial();
+            break;
+
+        case 8: // Salida
             inventario.guardarAJson("Productos.json");
+            gasolinera.guardarHistorialJson("HistorialGas.json");
             std::cout << "Saliendo del sistema...\n";
             activo = false;
             break;
 
-
-            /**
-         * @brief Muestra un mensaje si la opción ingresada no es válida.
-         */
         default:
             std::cout << "Opción invalida, intenta otra vez.\n";
             break;

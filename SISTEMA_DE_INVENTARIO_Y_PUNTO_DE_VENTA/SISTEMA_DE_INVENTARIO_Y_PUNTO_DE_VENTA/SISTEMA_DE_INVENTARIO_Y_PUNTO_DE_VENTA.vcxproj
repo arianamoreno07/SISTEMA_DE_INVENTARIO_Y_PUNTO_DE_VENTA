@@ -162,19 +162,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Prerequisites.h" />
+    <ClInclude Include="include\ProgrammingPatterns\facade\SistemaFacade.h" />
+    <ClInclude Include="include\ProgrammingPatterns\facade\SistemaGasolineraFacade.h" />
     <ClInclude Include="include\ProgrammingPatterns\factory\ProductoFactory.h" />
+    <ClInclude Include="include\ProgrammingPatterns\gasolinera\Gasolinera.h" />
     <ClInclude Include="include\ProgrammingPatterns\modelos\Inventario.h" />
     <ClInclude Include="include\ProgrammingPatterns\modelos\Producto.h" />
     <ClInclude Include="include\ProgrammingPatterns\observer\observador.h" />
     <ClInclude Include="include\ProgrammingPatterns\observer\AlertaStockBajo.h" />
     <ClInclude Include="include\ProgrammingPatterns\observer\Sujeto.h" />
+    <ClInclude Include="include\ProgrammingPatterns\strategy\MetodoPago.h" />
+    <ClInclude Include="include\ProgrammingPatterns\strategy\PagoCredito.h" />
+    <ClInclude Include="include\ProgrammingPatterns\strategy\PagoDebito.h" />
+    <ClInclude Include="include\ProgrammingPatterns\strategy\PagoEfectivo.h" />
+    <ClInclude Include="include\ProgrammingPatterns\tickets\GeneradorTickets.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\ProgrammingPatterns\facade\SistemaGasolineraFacade.cpp" />
     <ClCompile Include="source\ProgrammingPatterns\factory\ProductoFactory.cpp" />
+    <ClCompile Include="source\ProgrammingPatterns\gasolinera\Gasolinera.cpp" />
     <ClCompile Include="source\ProgrammingPatterns\modelos\Inventario.cpp" />
     <ClCompile Include="source\ProgrammingPatterns\modelos\Producto.cpp" />
-    <ClCompile Include="source\ProgrammingPatterns\observer\Sujeto.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
