@@ -1,21 +1,21 @@
-*************** TIENDA XYZ ****************
+*************** TIENDA DE LA ESQUINA ****************
                RECIBO DE COMPRA
 -------------------------------------------
 
 Ticket No: 001283
-Fecha: 03/12/2025   Hora: 17:57:06
+Fecha: 04/12/2025   Hora: 20:59:51
 
-Descripción                         Precio
+Descripción                          Precio 
 -------------------------------------------
-Paracetamol 500 mg Oral 20 tabletas Marca del Ahorro$25
-Cantidad: 4
+Pomada de La Campana Tepezcohuite Tarro 35 g$63
+Cantidad: 5
 -------------------------------------------
 
-Subtotal:                           $86.21
-IVA (16%):                          $13.79
-TOTAL:                              $100.00
+Subtotal:                           $271.55
+IVA (16%):                          $43.45
+TOTAL:                              $315.00
 
-Método de pago: Credito
+Método de pago: Debito
 -------------------------------------------
    Gracias por su compra. Vuelva pronto :)
 *******************************************
